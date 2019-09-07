@@ -1,0 +1,7 @@
+# 开发模式配置
+devMode=true
+engineDevMode=true
+# 数据库配置
+jdbcUrl=jdbc:sqlite:data/secsoft.db
+user=
+password=

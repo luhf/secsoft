@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- maven坐标 -->
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>secsoft-core</artifactId>
+    <name>${project.artifactId}</name>
+    <url>https://www.secsoft.com</url>
+    <description>核心模块</description>
+    <version>${secsoft-core.version}</version>
+
+    <!-- 继承 -->
+    <parent>
+        <artifactId>secsoft-parent</artifactId>
+        <groupId>com.secsoft</groupId>
+        <version>${revision}${sha1}${changelist}</version>
+        <relativePath>../secsoft-parent/pom.xml</relativePath>
+    </parent>
+
+    <!-- 配置 -->
+    <properties>
+    </properties>
+
+    <!-- 依赖 -->
+    <dependencies>
+    </dependencies>
+
+    <!-- 构建 -->
+    <build>
+        <!-- 插件配置 -->
+        <plugins>
+            <!-- 编译插件 -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <!-- java8 保留参数名编译参数 -->
+                    <compilerArgument>-parameters</compilerArgument>
+                    <compilerArguments>
+                        <verbose/>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <!--
+            jar 包中的配置文件优先级高于 config 目录下的 "同名文件"
+            因此，打包时需要排除掉 jar 包中来自 src/main/resources 目录的
+            配置文件，否则部署时 config 目录中的同名配置文件不会生效
+            -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>*.txt</exclude>
+                        <exclude>*.xml</exclude>
+                        <exclude>*.properties</exclude>
+                        <exclude>*.pfx</exclude>
+                        <exclude>*.jf</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

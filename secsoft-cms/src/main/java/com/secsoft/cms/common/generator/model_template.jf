@@ -1,0 +1,20 @@
+package #(modelPackageName);
+
+import #(baseModelPackageName).#(tableMeta.baseModelName);
+
+/**
+ * #(tableMeta.modelName)
+ * @author luhf
+ */
+public class #(tableMeta.modelName) extends #(tableMeta.baseModelName)<#(tableMeta.modelName)> {
+
+    /**
+     * 序列化版本号
+     */
+    private static final long serialVersionUID = 1L;
+    #if (generateDaoInModel)
+    public static final #(tableMeta.modelName) dao = new #(tableMeta.modelName)().dao();
+    #else
+    #end
+}
+

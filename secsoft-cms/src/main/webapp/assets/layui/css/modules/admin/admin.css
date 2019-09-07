@@ -1,0 +1,24 @@
+::-webkit-input-placeholder {
+    color: #ccc
+}
+
+html {
+    background-color: #f2f2f2;
+    color: #666;
+}
+
+.layadmin-link {
+    color: #029789 !important
+}
+
+.layadmin-link:hover {
+    opacity: .8
+}
+
+.layui-icon-login-qq {
+    color: #3492ED;
+}
+
+.layui-icon-login-wechat {
+    color: #4DAF29;
+}

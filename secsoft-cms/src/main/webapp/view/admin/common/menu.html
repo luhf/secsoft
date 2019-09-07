@@ -1,0 +1,57 @@
+<div class="layui-side-scroll">
+    <ul class="layui-nav layui-nav-tree">
+        <li class="layui-nav-item">
+            <a data-pjax href="/admin">控制台</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:void(0);">权限管理</a>
+            <dl class="layui-nav-child">
+                <dd><a data-pjax href="/admin/account">账户管理</a></dd>
+                <dd><a data-pjax href="/admin/role">角色管理</a></dd>
+                <dd><a data-pjax href="/admin/permission">权限管理</a></dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<script>
+    layui.config({
+        base: '/assets/layui/lay/modules/jquery/thirdparty/'
+    }).extend({
+        pjax: 'pjax'
+    });
+    layui.use(['element', 'laytpl', 'pjax'], function () {
+        var $ = layui.jquery;
+        var laytpl = layui.laytpl;
+        var element = layui.element;
+        var controllerKey = '#(controllerKey)';
+        //防止页面后退
+        window.history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            window.history.pushState(null, null, document.URL);
+        });
+        // 使用 pushState 在浏览器中添加历史记录
+        $.pjax.defaults.push = false;
+        var menus = [{
+            "title": "控制台",
+            "url": "/admin",
+            "child": []
+        }, {
+            "title": "权限管理",
+            "url": "javascript:void(0);",
+            "child": [{
+                "title": "账户管理",
+                "url": "/admin/account",
+                "child": []
+            }, {
+                "title": "角色管理",
+                "url": "/admin/role",
+                "child": []
+            }, {
+                "title": "权限管理",
+                "url": "/admin/permission",
+                "child": []
+            }]
+        }];
+        $(document).pjax('a[data-pjax]', '.layui-body')
+    });
+</script>
