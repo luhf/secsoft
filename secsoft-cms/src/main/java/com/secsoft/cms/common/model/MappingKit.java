@@ -7,7 +7,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
  *
  * @author luhf
  */
-public class _MappingKit {
+public class MappingKit {
 
     public static void mapping(ActiveRecordPlugin arp) {
         arp.addMapping("auth_account", "id", Account.class);

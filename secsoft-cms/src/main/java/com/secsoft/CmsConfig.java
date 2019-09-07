@@ -14,7 +14,7 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.plugin.hikaricp.HikariCpPlugin;
 import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
-import com.secsoft.cms.common.model._MappingKit;
+import com.secsoft.cms.common.model.MappingKit;
 import com.secsoft.cms.common.token.MapTokenCache;
 import com.secsoft.cms.route.AdminRoutes;
 import com.secsoft.cms.route.FrontRoutes;
@@ -120,7 +120,7 @@ public class CmsConfig extends JFinalConfig {
         arp.setDialect(new Sqlite3Dialect());
         arp.setShowSql(p.getBoolean("devMode", Boolean.FALSE));
         arp.setTransactionLevel(Connection.TRANSACTION_READ_COMMITTED);
-        _MappingKit.mapping(arp);
+        MappingKit.mapping(arp);
         arp.getEngine().setToClassPathSourceFactory();
         me.add(arp);
 

@@ -3,6 +3,7 @@ package com.secsoft.core.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.hutool.http.HttpStatus;
 import com.jfinal.aop.Aop;
 import com.jfinal.aop.Invocation;
 import com.jfinal.config.Constants;
@@ -112,13 +113,13 @@ public class ActionHandler extends com.jfinal.core.ActionHandler {
         Action action, ActionException e) {
         int errorCode = e.getErrorCode();
         String msg = null;
-        if (errorCode == 404) {
+        if (errorCode == HttpStatus.HTTP_NOT_FOUND) {
             msg = "404 Not Found: ";
-        } else if (errorCode == 400) {
+        } else if (errorCode == HttpStatus.HTTP_BAD_REQUEST) {
             msg = "400 Bad Request: ";
-        } else if (errorCode == 401) {
+        } else if (errorCode == HttpStatus.HTTP_UNAUTHORIZED) {
             msg = "401 Unauthorized: ";
-        } else if (errorCode == 403) {
+        } else if (errorCode == HttpStatus.HTTP_FORBIDDEN) {
             msg = "403 Forbidden: ";
         }
         if (msg != null) {

@@ -6,7 +6,7 @@ import com.secsoft.cms.admin.index.AdminIndexController;
 import com.secsoft.cms.admin.permission.PermissionAdminController;
 import com.secsoft.cms.admin.role.RoleAdminController;
 import com.secsoft.cms.common.interceptor.AdminAuthInterceptor;
-import com.secsoft.cms.common.interceptor.PJaxInterceptor;
+import com.secsoft.cms.common.interceptor.PjaxInterceptor;
 
 /**
  * 后台管理路由
@@ -21,7 +21,7 @@ public class AdminRoutes extends Routes {
         // 添加后台管理拦截器，将拦截在此方法中注册的所有Controller
         addInterceptor(new AdminAuthInterceptor());
         // PJax拦截器，查看请求是否是PJax请求
-        addInterceptor(new PJaxInterceptor());
+        addInterceptor(new PjaxInterceptor());
 
         // 设置后台管理页面路径
         setBaseViewPath("view/admin");

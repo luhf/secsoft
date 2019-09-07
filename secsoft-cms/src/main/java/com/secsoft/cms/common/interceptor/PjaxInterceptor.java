@@ -10,7 +10,7 @@ import com.jfinal.core.Controller;
  * @author luhf
  * @since 2019/6/17 0:42
  */
-public class PJaxInterceptor implements Interceptor {
+public class PjaxInterceptor implements Interceptor {
 
     @Override
     public void intercept(Invocation inv) {

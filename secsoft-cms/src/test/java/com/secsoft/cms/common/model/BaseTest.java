@@ -25,7 +25,7 @@ public class BaseTest {
         arp.setDialect(new Sqlite3Dialect());
         arp.setShowSql(true);
         arp.setTransactionLevel(Connection.TRANSACTION_READ_COMMITTED);
-        _MappingKit.mapping(arp);
+        MappingKit.mapping(arp);
         arp.getEngine().setToClassPathSourceFactory();
         arp.start();
     }
